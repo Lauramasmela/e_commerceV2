@@ -1,0 +1,893 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
+}
+
+body {
+    font-family: "Century Gothic", Arial, sans-serif;
+}
+
+
+/*********************** barre menu ************************/
+
+#icons img {
+    width: 20px !important;
+}
+.categ{
+    margin-left: 8em!important;
+    text-transform: uppercase;
+}
+
+
+/************ barre menu  categories *************/
+
+
+#barreMenu .navbar-nav a {
+    position: relative;
+}
+
+#barreMenu a.dropdown-item.mdl:before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+
+    visibility: hidden;
+    transform: scaleX(0);
+    transition: all 0.3s ease-in-out;
+}
+
+#barreMenu a.dropdown-item.mdl:before {
+    background-color: #000;
+}
+
+#barreMenu #menu ul li a#n.mdl:before {
+    background-color: #005717;
+}
+
+#barreMenu #menu ul li a#s.mdl:before {
+    background-color: #721c24;
+}
+
+#barreMenu a.dropdown-item.mdl:hover:before {
+    visibility: visible;
+    transform: scaleX(1);
+}
+
+div #badge{
+    color : white;
+    background-color: #5a6268;
+    text-align: center;
+    border-radius: 50px;
+}
+
+/************ slide burguer *************/
+.menuBurg {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #fff;
+    overflow-x: hidden;
+    transition: 0.2s;
+    padding-top: 60px;
+}
+
+.menuBurg a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+    text-transform: uppercase;
+}
+
+.menuBurg a:hover {
+    color: #f1f1f1;
+}
+
+.menuBurg .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+.menuBurg img{
+    width: 30px;
+}
+
+/************ slide panier *************/
+#panierSlide {
+    background-color: #FEFFF8; /* Black*/
+}
+
+.barreCote {
+    background-color: #FEFFF8; /* Black*/
+    height: 100%; /* 100% Full-height */
+    width: 0; /* 0 width - change this with JavaScript */
+    position: fixed; /* Stay in place */
+    z-index: 5; /* Stay on top */
+    top: 0;
+    right: 0;
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 60px; /* Place content 60px from the top */
+    transition: 0.5s; /* 0.5 second transition effect to slide in the sidebar */
+}
+
+.barreCote .fermerbtn img {
+    width: 17px;
+    margin-left: 7%;
+}
+
+.barreCote h3 {
+    font-size: 3em;
+    font-weight: bold;
+    text-align: center;
+}
+
+#panierSlide .titre {
+    margin-bottom: 12%;
+}
+
+.infoProdPanier {
+    display: flex;
+}
+
+.infoProdPanier .imageProdCourant, .infoProdPanier .infoVerticale {
+    flex-direction: row;
+}
+
+.barreCote img {
+    width: 150px;
+    margin-left: 30%;
+}
+
+.barreCote .infoVerticale {
+    margin-left: 4em;
+}
+
+.barreCote .infoVerticale h4 {
+    font-size: 1.1em;
+
+}
+
+.barreCote .infoVerticale .infoSpec p {
+    font-size: 0.8em;
+    margin: 0.5%;
+}
+
+.barreCote .infoVerticale .infoSpec .quant, .coul, .taill {
+    color: #707070;
+}
+
+.barreCote .infoVerticale .infoSpec .totalInfo {
+    color: #721C24;
+    font-weight: bold;
+}
+
+.infoProdPanier {
+    border-bottom: 1px solid #707070;
+    margin-top: 7%;
+    margin-left: 7%;
+    margin-right: 5%;
+}
+
+.barreCote .tot {
+    margin-top: 7%;
+    margin-left: 7%;
+}
+
+.barreCote .affichePrix {
+    display: flex;
+    flex-direction: row;
+}
+
+.barreCote .affichePrix h5 {
+    font-weight: bold;
+    font-size: 1.4em;
+}
+
+.barreCote .affichePrix .t {
+    margin-right: 30%;
+}
+
+.barreCote .affichePrix .p {
+    margin-left: 30%;
+}
+
+.barreCote .tot .livraison {
+    font-size: 0.8em;
+}
+
+.barreCote .but {
+    text-align: center;
+}
+
+.barreCote .but .fC {
+    margin-bottom: 2%;
+}
+
+.barreCote .but .fC button {
+    padding: 2% 17%;
+    border: none;
+    background: black;
+    color: white;
+}
+
+.barreCote .but .vP button {
+    padding: 2% 23%;
+    border: 3px solid black;
+    background: white;
+    color: black;
+}
+
+/************ panier.php *************/
+.quantit input[type=number]{
+    width: 40%;
+}
+
+#lePani h3 {
+    font-size: 3em !important;
+    font-weight: bold;
+    margin-bottom: 5%;
+}
+
+#lePani h4 {
+    font-size: 1.3em;
+}
+
+.container .row .lePanier .infoProdPanier img {
+    width: 150px;
+}
+
+#lePani .lePanier .infoVerticale {
+    margin-left: 5%;
+    padding-bottom: 6%;
+}
+
+#lePani .lePanier .infoVerticale div {
+    font-size: 1em;
+    color: black;
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+
+#lePani .lePanier .infoVerticale .infoSpec .quantit {
+    margin-top: 8%;
+}
+
+#lePani .lePanier .infoVerticale .infoSpec select {
+    width: 30%;
+}
+
+.formuValider {
+    background-color: #FAFAF8;
+    padding: 3% 4%;
+}
+
+.formuValider form label {
+    font-size: 0.6em;
+    text-align: center;
+    font-weight: bold;
+}
+
+.formuValider form {
+    margin-left: 4%;
+}
+
+.paieInfo div {
+    font-size: 0.8em;
+}
+
+.finCom {
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
+.finCom .row {
+    margin-left: 1%;
+}
+
+.finCom .row .d2 {
+    font-size: 0.9em !important;
+}
+
+.finCom .row .d3, .d4 {
+    font-size: 0.8em !important;
+}
+
+.finCom .row .d3 {
+    padding-right: 46%;
+}
+
+.finCom .row .d1 {
+    font-size: 0.9em !important;
+    padding-right: 25%;
+}
+
+.finCom .row .d1, .finCom .row .d2 {
+    margin-top: 9%;
+}
+
+.finCom .row .d4 {
+    margin-bottom: 12%;
+}
+
+.finCom div {
+    margin-bottom: 1%;
+    margin-top: 1%;
+    padding-bottom: 1%;
+}
+
+.butFinCommande {
+    width: 100%;
+
+}
+
+.butFinCommande button {
+    margin-left: 3.5%;
+    padding: 2% 17%;
+    background: black;
+    color: white;
+    border: 1px solid white;
+    transition: 0.5s ease-in-out;
+
+}
+
+.butFinCommande button:hover {
+    background: #ffffff;
+    transition: 0.5s;
+    color: black;
+    border: 1px solid black;
+}
+
+.paieInfo .na {
+    margin-top: 4%;
+    margin-left: 29%;
+}
+
+.paieInfo img {
+    width: 50px;
+    margin-left: 7%;
+}
+
+.paieInfo .modePaie {
+    margin-bottom: 8%;
+    margin-top: 4%;
+}
+
+.paieInfo .inSup {
+    text-align: center;
+    margin-left: 0.5%;
+}
+
+.supPrd .btn img{
+    width: 30px!important;
+}
+.supPrd{
+    text-align: right;
+}
+
+/************ accueil *************/
+
+.container h3 {
+    text-transform: capitalize;
+    margin-top: 7%;
+    margin-bottom: 4%;
+    text-align: center;
+}
+
+#acc .imgdeco img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    z-index: 1;
+}
+
+
+
+.container .carousel-item img {
+    width: 350px !important;
+    height: 490px;
+}
+
+
+.p1, .p2, .p3 {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+ .row .col img {
+    width: 300px;
+}
+
+.catsP img {
+    margin-left: 7%;
+}
+
+.catsP a {
+    text-decoration: none;
+    color: black;
+    text-align: center;
+}
+
+.listefinale {
+    position: relative;
+    padding-left: 0px;
+}
+
+.listefinale p {
+    color: black;
+    text-align: center;
+}
+
+.listefinale img {
+    width: 283px !important;
+    display: block;
+    margin-bottom: 3%;
+}
+
+.listefinale p {
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-bottom: 5em;
+
+}
+
+.middle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+
+/************ hover menu accueil *************/
+
+
+#mDeroul ul, #mDeroul1 ul, #mDeroul2 ul, #mDeroul3 ul {
+    margin-top: 2%;
+    padding-left: 2%;
+    padding-right: 2%;
+}
+
+#mDeroul ul li a, #mDeroul1 ul li a, #mDeroul2 ul li a, #mDeroul3 ul li a {
+    color: black;
+    text-decoration: none;
+    flex-direction: row;
+}
+
+#mDeroul ul li a:hover, #mDeroul1 ul li a:hover, #mDeroul2 ul li a:hover, #mDeroul3 ul li a:hover {
+    color: #721c24;
+}
+
+#mDeroul, #mDeroul1, #mDeroul2, #mDeroul3 {
+    position: absolute;
+    z-index: 3;
+    display: flex;
+    padding-top: 2%;
+    width: 100%;
+    background: rgb(254, 255, 248);
+    background: linear-gradient(180deg, rgba(254, 255, 248, 1) 0%, rgba(254, 255, 248, 0.6530987394957983) 100%);
+}
+
+#mDeroul p, #mDeroul1 p, #mDeroul2 p, #mDeroul3 p {
+    text-align: center;
+}
+
+#mDeroul h4, #mDeroul1 h4, #mDeroul2 h4, #mDeroul3 h4 {
+    text-transform: uppercase;
+    font-size: 1em;
+    text-align: center;
+    font-weight: bold;
+}
+
+#mDeroul {
+    padding-left: 16%;
+}
+
+#mDeroul1 {
+    padding-left: 15%;
+}
+
+#mDeroul2 {
+    padding-left: 30%;
+}
+
+#mDeroul3 {
+    padding-left: 29%;
+}
+
+.nouv {
+    padding-top: 4%;
+}
+
+
+/************ catF, catH, catEn, catN *************/
+#categoriesF, #categoriesH, #categoriesEn, #categoriesN {
+    position: relative;
+    margin-top: 10%;
+}
+
+#categoriesF img, #categoriesH img, #categoriesEn img {
+    width: 100%;
+    height: 30em;
+    object-fit: cover;
+}
+
+#categoriesF div, #categoriesH div, #categoriesEn div {
+    margin-top: 15%;
+    margin-bottom: 4%;
+    padding-top: 2%;
+    padding-bottom: 2%;
+}
+
+#motCat1, #motCat2, #motCat3, #motCat4, #motCat5 {
+    position: absolute;
+    background: rgb(255, 255, 255);
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.6) 0%, rgba(255, 255, 255, 0.6026785714285714) 100%);
+    width: 100%;
+}
+
+#motCat1 p, #motCat2 p, #motCat3 p, #motCat4 p, #motCat5 p {
+    color: black;
+    text-transform: uppercase;
+    font-size: 1.5em;
+    font-weight: bold;
+    margin: auto;
+    text-align: center;
+}
+
+#categoriesN {
+    position: relative;
+    margin-top: 5%;
+}
+
+#categoriesN img {
+    width: 100%;
+    height: 40em;
+    object-fit: cover;
+}
+
+#categoriesN .cf1 #motCat1 {
+    margin-bottom: 4%;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    margin-top: 20%;
+    padding-left: 28%;
+}
+
+#categoriesN .cf1 #motCat1 button {
+    border: none;
+    padding: 1.5% 4%;
+    text-transform: uppercase;
+    background-color: black;
+    color: white;
+}
+
+#categoriesN .cf1 #motCat1 button:hover {
+    background-color: white;
+    color: black;
+    transition: 0.8s;
+}
+
+
+/************ catH *************/
+
+
+/************ chF.php *************/
+.chems {
+    z-index: 1;
+    margin-top: 5em;
+}
+
+/*.chems select{
+    border: none;
+    width: 7em;
+}*/
+.chColum {
+    margin-top: 2% !important;
+}
+.chColum a{
+   color: black;
+    text-align: center;
+}
+
+.chColum img {
+    margin-left: 7%;
+}
+
+
+/************ detailP1.php *************/
+.retour1 {
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+
+.retour1 a {
+    color: black;
+}
+
+.retour1 a:hover {
+    color: #721c24;
+}
+
+.row .imdet1, .row .imdet2 {
+    position: relative;
+    width: 350px !important;
+    margin-top: 0.5em;
+}
+
+.ligne2 {
+    padding-bottom: 3em;
+}
+
+.tabAchat {
+    position: sticky;
+    top: 30px;
+    margin-left: 1em;
+}
+
+.tabAchat tbody {
+    padding-top: 2em;
+}
+
+.tabAchat tr td {
+    padding-left: 2em;
+    padding-bottom: 1em;
+}
+
+.tabAchat h4 {
+    font-size: 1.3em;
+    margin-top: 1.5em;
+    text-align: justify;
+}
+
+.tabAchat .colores {
+    font-size: 1em;
+
+}
+
+.row .tabAchat img {
+    width: 50px;
+    margin-bottom: 3%;
+}
+
+.tabAchat select {
+
+    padding: 0.5em 2em;
+    font-size: 0.9em;
+    border-radius: 5px;
+    margin-bottom: 0.5em;
+    width: 22em;
+    text-align: center;
+}
+
+.tabAchat button {
+    padding: 0.5em 2em;
+
+    margin-bottom: 2em;
+    width: 20em;
+}
+
+/************ detailP1.php *************/
+.detailChF .carousel-item img {
+    width: 98% !important;
+    margin-top: 5%;
+}
+
+.detailChF .arrow img {
+    width: 30px;
+}
+
+
+/************ modal connexion login.php *************/
+
+#formConnexion {
+    background: #fcfcfb;
+    width: 40% !important;
+    margin-left: 30%;
+    padding: 4% 4%;
+    margin-top: 2%;
+    position: absolute;
+    z-index: 55 !important;
+}
+
+.back-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(30, 39, 46, 0.5);
+    z-index: 1 !important;
+}
+
+#formConnexion h3 {
+    text-align: center;
+    font-size: 2em;
+    font-weight: bold;
+}
+
+#formConnexion p {
+    text-align: center;
+    font-size: 0.8em;
+}
+
+#formConnexion .inscription {
+    text-align: right !important;
+}
+
+#formConnexion .inscription a {
+    color: black;
+}
+
+#formConnexion .inscription a:hover {
+    color: #721c24;
+}
+
+#formConnexion .b1, #formConnexion .b2 {
+    text-align: center;
+}
+
+#formConnexion .b1 {
+    margin-top: 4%;
+}
+
+#formConnexion .b2 {
+    margin-top: 4%;
+    margin-bottom: 6%;
+}
+
+#formConnexion input {
+    border: none;
+    background: white !important;
+}
+
+#formConnexion img {
+    width: 15px !important;
+    margin-left: 95%;
+    margin-bottom: 3%;
+}
+
+/************ modal connexion login.php *************/
+
+#formInscription {
+    background: #fcfcfb;
+    width: 70% !important;
+    margin-left: 15%;
+    padding: 4% 4%;
+    margin-top: 2%;
+}
+
+#formInscription h3 {
+    text-align: center;
+    font-size: 2em;
+    font-weight: bold;
+}
+
+#formInscription p {
+    text-align: center;
+    font-size: 0.8em;
+}
+
+#formInscription .b1{
+    text-align: center;
+}
+
+#formInscription .b1 {
+    margin-top: 4%;
+}
+
+/************ page banque *************/
+
+#logoBanque{
+    width: 500px;
+}
+
+/************ footer *************/
+#foot {
+    background-color: #EDECEA;
+    padding-top: 15em;
+    padding-bottom: 1em;
+    margin-top: 10%;
+    width: 100%;
+
+}
+
+#foot ul {
+    display: flex;
+   justify-content: center;
+
+}
+
+#foot li {
+    flex-direction: row;
+}
+
+#foot img {
+    width: 30px;
+}
+
+
+/************************** responsive **************************/
+@media (max-width: 576px) {
+    .listefinale img {
+        margin-left: 13%;
+    }
+    .tabAchat {
+        margin-left: 1em;
+    }
+
+    .tabAchat tr td {
+        padding-left: 0em;
+    }
+
+    /************ slide panier *************/
+
+    .barreCote img {
+        width: 70px;
+        margin-left: 30%;
+    }
+
+    .barreCote .infoVerticale {
+        margin-left: 2em;
+    }
+    .infoProdPanier {
+        padding-left: 1em;
+        padding-right: 1em;
+    }
+
+    .barreCote .tot {
+        margin-left: 2em;
+    }
+
+    .barreCote .affichePrix .t {
+        margin-right: 2em;
+    }
+
+    .barreCote .but .fC button {
+        padding: 2% 5%;
+    }
+
+    .barreCote .but .vP button {
+        padding: 2% 10%;
+    }
+
+    /************ carousel accueil *************/
+    .container .carousel-item img {
+        width: 380px !important;
+        height: 490px;
+
+    }
+
+    /************ modal connexion *************/
+    #formConnexion {
+
+        width: 80% !important;
+        margin-left: 10%;
+    }
+
+    #formInscription{
+        width: 90%!important;
+        margin-left: 5%;
+    }
+    
+
+
+}
+
+
+
+
+
