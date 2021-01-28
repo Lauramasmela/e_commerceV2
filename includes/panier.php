@@ -1,5 +1,5 @@
 <?php
-include '../bdd/bd.php';
+
 
 $vSession = $_SESSION['id_session'];
 
@@ -15,9 +15,11 @@ $prdCourant->execute();
 <div class="container" id="lePani">
     <h3>Mon Panier</h3>
     <!--    <p class="statusMsg"></p>-->
+    <?php $somme = 0 ?>
     <div class="row">
         <div class="col-sm-8 lePanier">
-            <?php while ($donneesPanier = $reqPanier->fetch()) {
+            <?php
+            while ($donneesPanier = $reqPanier->fetch()) {
 
 
                 $photoPrd = $donneesPanier['panier_photo_produit'];
@@ -102,7 +104,7 @@ $prdCourant->execute();
             <div class="row finCom">
                 <div class="row col-sm-12">
                     <div class="d1"><strong>Total de la commande</strong></div>
-                    <div class="d2"><strong> <?php echo $somme ?>€</strong></div>
+                    <div class="d2"><strong> <?php echo $somme; ?>€</strong></div>
                 </div>
                 <div class="row col-sm-12">
                     <div class="d3">Total de livraison</div>
@@ -152,10 +154,10 @@ $prdCourant->execute();
                     $("#modalForm").modal('show');
                 } else {
                     if (msg === 'noAdresse') {
-                        window.location.replace("http://localhost/Formation_cci/e_commerceV2/index.php?page=18");
+                        window.location.replace(<?php URL?>"/index.php?page=18");
                     } else {
                         //paiement
-                        window.location.replace("http://localhost/Formation_cci/e_commerceV2/index.php?page=70");
+                        window.location.replace(<?php URL?>"/index.php?page=70");
                     }
                 }
                 $('.submitBtnC').removeAttr("disabled");

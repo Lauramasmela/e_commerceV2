@@ -1,11 +1,15 @@
 <?php
-include '../bdd/bd.php';
+
 $vSession = $_SESSION['id_session'];
 $idUtilisateur = $_SESSION['loginUserId'];
 
-$reqUser = $bd->prepare('SELECT * FROM utilisateurs WHERE id_utilisateur = :id_utilisateur');
-$reqUser->bindValue(':id_utilisateur', $idUtilisateur, PDO::PARAM_INT);
-$reqUser->execute();
+
+
+if (isset($bd)) {
+    $reqUser = $bd->prepare('SELECT * FROM utilisateurs WHERE id_utilisateur = :id_utilisateur');
+    $reqUser->bindValue(':id_utilisateur', $idUtilisateur, PDO::PARAM_INT);
+    $reqUser->execute();
+}
 $donnesUser = $reqUser->fetch();
 $prenom = $donnesUser['prenom'];
 $nom = $donnesUser['nom'];
@@ -18,6 +22,8 @@ $pays = $donnesUser['pays'];
 $reqPanierCourant = $bd->prepare('SELECT * FROM panier WHERE panier_id_commande = :panier_id_commande');
 $reqPanierCourant->bindValue(':panier_id_commande', $vSession, PDO::PARAM_STR);
 $reqPanierCourant->execute();
+
+$_SESSION['total'] = 0;
 
 ?>
 
@@ -58,7 +64,7 @@ $reqPanierCourant->execute();
                     </div>
                 </div>
                 <div class="form-group text-center">
-                    <a>
+                    <a href="index.php?page=18">
                         <button type="button" name="modifierInfoUser" class="btn btn-outline-dark">Modifier Adresse
                         </button>
                     </a>
@@ -71,6 +77,7 @@ $reqPanierCourant->execute();
 
         <div class="col-sm-6 formuValider">
             <?php
+            $somme=0;
             while ($donneesPanierCourant = $reqPanierCourant->fetch()) {
                 $refPrd= $donneesPanierCourant['panier_ref_produit'];
                 $prixLigne = ($donneesPanierCourant['panier_qtite_produit']) * ($donneesPanierCourant['panier_prix_produit']);

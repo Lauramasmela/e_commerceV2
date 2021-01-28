@@ -109,7 +109,7 @@ if (isset($_SESSION['loginUserId'], $_SESSION['loginUser'])) {
                     $reqInfoSup->bindValue(':pays', $pays, PDO::PARAM_STR);
                     $reqInfoSup->execute();
 
-                    echo '<script> window.location.replace("http://localhost/Formation_cci/e_commerceV2/index.php?page=70");</script>';
+                    echo '<script> window.location.replace('.URL.'"/index.php?page=70");</script>';
 
                        
 

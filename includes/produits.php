@@ -1,18 +1,20 @@
 <?php
-include '../bdd/bd.php';
 
+const ID_MODELE = ':id_modele';
 $mdl = $_GET['mdl'];
 
-$reqDetailProd = $bd->prepare('SELECT * FROM produits WHERE id_modele = :id_modele');
-$reqDetailProd->bindValue(':id_modele', $mdl, PDO::PARAM_STR);
-$reqDetailProd->execute();
+if (isset($bd)) {
+    $reqDetailProd = $bd->prepare('SELECT * FROM produits WHERE id_modele = :id_modele');
+    $reqDetailProd->bindValue(ID_MODELE, $mdl, PDO::PARAM_STR);
+    $reqDetailProd->execute();
 
-$donneesDetailPrd = $reqDetailProd->fetch();
+    $donneesDetailPrd = $reqDetailProd->fetch();
 
-$modelePrduit=$donneesDetailPrd['id_modele'];
-$nomProduit=$donneesDetailPrd['libelle_prod'];
-$photoProduit= $donneesDetailPrd['img_default'];
-$prixProduit=$donneesDetailPrd['prix_prod'];
+    $modelePrduit = $donneesDetailPrd['id_modele'];
+    $nomProduit = $donneesDetailPrd['libelle_prod'];
+    $photoProduit = $donneesDetailPrd['img_default'];
+    $prixProduit = $donneesDetailPrd['prix_prod'];
+}
 
 ?>
 
@@ -20,7 +22,6 @@ $prixProduit=$donneesDetailPrd['prix_prod'];
     <div class="retour1">
         <a href="">Retour</a>
     </div>
-<!--    <div id="retour"></div>-->
     <div class="row flex-row-reverse justify-content-end">
         <div class="col col-lg-4 col-md-6 col-sm-1">
             <table class="tabAchat">
@@ -36,7 +37,7 @@ $prixProduit=$donneesDetailPrd['prix_prod'];
                         FROM produits, couleurs 
                         where produits.id_modele = :id_modele 
                           and produits.couleur_id = couleurs.id_couleur');
-                        $reqProdsInfo->bindValue(':id_modele', $donneesDetailPrd['id_modele'], PDO::PARAM_STR);
+                        $reqProdsInfo->bindValue(ID_MODELE, $donneesDetailPrd['id_modele'], PDO::PARAM_STR);
                         $reqProdsInfo->execute();
 
                         echo '<td class="colores">' .
@@ -50,7 +51,7 @@ $prixProduit=$donneesDetailPrd['prix_prod'];
 
                             echo '<label>' . $nomCouleur . '</label>';
                             echo '<label for="' . $nomCouleur . '">' .
-                                '<input type="radio" name="couleurPrd" value="' .  $couleurId . '">' .
+                                '<input type="radio" name="couleurPrd" value="' . $couleurId . '">' .
                                 '</label>' . '<br>';
                         }
                         echo '</td>'
@@ -63,7 +64,7 @@ $prixProduit=$donneesDetailPrd['prix_prod'];
                         FROM produits, tailles
                         where produits.id_modele = :id_modele
                         and produits.taille_id = tailles.id_taille');
-                        $reqProdsInfoT->bindValue(':id_modele', $donneesDetailPrd['id_modele'], PDO::PARAM_STR);
+                        $reqProdsInfoT->bindValue(ID_MODELE, $donneesDetailPrd['id_modele'], PDO::PARAM_STR);
                         $reqProdsInfoT->execute();
                         ?>
                         <td>
@@ -89,9 +90,9 @@ $prixProduit=$donneesDetailPrd['prix_prod'];
                     <tr>
                         <div>
                             <input type="hidden" name="id_session" id="id_session"
-                                   value="<?php echo  $_SESSION['id_session'] ?>">
+                                   value="<?php echo $_SESSION['id_session'] ?>">
                             <input type="hidden" name="img_default" id="img_default"
-                                   value="<?php  echo $photoProduit ?>">
+                                   value="<?php echo $photoProduit ?>">
                             <input type="hidden" name="id_modele" id="id_modele"
                                    value="<?php echo $modelePrduit ?>">
                             <input type="hidden" name="libelle_prod" id="libelle_prod"
@@ -126,7 +127,7 @@ $prixProduit=$donneesDetailPrd['prix_prod'];
         }
         ?>
     </div>
-    
+
 </div>
 
 <script>
@@ -147,14 +148,14 @@ $prixProduit=$donneesDetailPrd['prix_prod'];
                 couleur: couleur,
                 taille: taille,
                 prix: prix,
-                quantite : qte
+                quantite: qte
 
             },
             function (data) {
-                 $('#infoSuccess').css('display', 'block');
-                 setTimeout("$('#infoSuccess').css('display', 'none')", 2500);
+                $('#infoSuccess').css('display', 'block');
+                setTimeout("$('#infoSuccess').css('display', 'none')", 2500);
                 //$('#retour').html(data);
-                 $('#badge').css('display', 'block')
+                $('#badge').css('display', 'block')
                 if (isNaN(parseInt($('#badge').html()))) {
                     $('#badge').html(parseInt(data));
                 } else {

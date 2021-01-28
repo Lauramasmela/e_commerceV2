@@ -1,5 +1,5 @@
 <?php
-include '../bdd/bd.php';
+//Sinclude '../bdd/bd.php';
 function random($nbChar)
 {
     $string = "";
@@ -10,7 +10,6 @@ function random($nbChar)
     }
     return $string;
 }
-
 
 $total = $_SESSION['total'];
 $idUser = $_SESSION['loginUserId'];

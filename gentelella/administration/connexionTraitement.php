@@ -32,14 +32,16 @@ if (isset($_POST['validationSubmit'])) {
                 $_SESSION['user_photo']=$user_photo;
                 $_SESSION['user_role']= $user_role;
 
-                header('Location: http://localhost/Formation_cci/e_commerceV2/gentelella/administration/index.php');
+//                header('Location: http://localhost/Formation_cci/e_commerceV2/gentelella/administration/index.php');
+                header('Location: index.php');
 
             } else {
                 $msgErrDonnees = '<div class="alert alert-danger" role="alert">
                     Votre adresse mail ou votre mot de passe est incorrect
                  </div>';
                 $_SESSION['msgErrDonnees'] = $msgErrDonnees;
-                header('Location: http://localhost/Formation_cci/e_commerceV2/gentelella/administration/index.php');
+//                header('Location: http://localhost/Formation_cci/e_commerceV2/gentelella/administration/index.php');
+                header('Location: index.php');
 
             }
         } else {
@@ -47,7 +49,8 @@ if (isset($_POST['validationSubmit'])) {
                     Votre adresse mail ou votre mot de passe est incorrect
                  </div>';
             $_SESSION['msgErrDonnees'] = $msgErrDonnees;
-            header('Location: http://localhost/Formation_cci/e_commerceV2/gentelella/administration/index.php');
+//            header('Location: http://localhost/Formation_cci/e_commerceV2/gentelella/administration/index.php');
+            header('Location: index.php');
 
         }
     } else {
@@ -57,7 +60,8 @@ if (isset($_POST['validationSubmit'])) {
                  </div>';
 
         $_SESSION['msgErrChampVide'] = $msg;
-        header('Location: http://localhost/Formation_cci/e_commerceV2/gentelella/administration/connexion.php');
+//        header('Location: http://localhost/Formation_cci/e_commerceV2/gentelella/administration/connexion.php');
+        header('Location: connexion.php');
 
 
     }

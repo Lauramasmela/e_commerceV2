@@ -1,7 +1,3 @@
-<?php
-include '../bdd/bd.php';
-?>
-
 <div class="modal fade" id="modalForm" role="dialog">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -60,12 +56,12 @@ include '../bdd/bd.php';
         var email = $('#inputEmail').val();
         var motdepasse = $('#inputPassword').val();
 
-        if(email.trim() == '' ){
+        if(email.trim() === '' ){
             alert('Merci de saisir votre email.');
             $('#inputEmail').focus();
             return false;
 
-        }else if(motdepasse.trim() == '' ){
+        }else if(motdepasse.trim() === '' ){
             alert('Merci de saisir votre mot de passe.');
             $('#inputPassword').focus();
             return false;
@@ -81,15 +77,15 @@ include '../bdd/bd.php';
                 },
                 success:function(msg){
                     $('.statusMsg').html(msg);
-                    if(msg == 'ok'){
+                    if(msg === 'ok'){
 
                         $('#inputEmail').val('');
                         $('#inputPassword').val('');
                         //$('.statusMsg').html('<span style="color:green;">connexion avec succès.</p>');
 
-                        window.location.replace("http://localhost/Formation_cci/e_commerceV2/index.php?page=0");
+                        window.location.replace(<?php URL?>"/index.php?page=0");
                     }
-                    else if(msg == 'inconnu'){
+                    else if(msg === 'inconnu'){
 
                         $('.statusMsg').html('<span style="color:#ff0000;">utilisateur inconnu.</p>');
                     }

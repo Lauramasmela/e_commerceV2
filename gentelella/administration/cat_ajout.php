@@ -102,7 +102,7 @@ if (isset($_GET['mod']) && isset($_GET['cat'])) {
                                             id="submit" class="btn btn-success <?php if (isset($mod)) {echo $dnone;} ?>">Ajouter
                                     </button>
 
-                                    <button type="button" onclick="updateCat('modifier','<?php echo $cat; ?>');"
+                                    <button type="button" onclick="updateCat('modifier','<?php if (isset($cat)){echo $cat;}  ?>');"
                                             name="modifierCat"
                                             class="btn btn-success d-none <?php if (isset($mod)) {echo $dBlock;} ?>">Modifier
                                     </button>

@@ -10,7 +10,7 @@ if (isset($_GET['deconnexion'])) {
 }
 
 if (!isset($_SESSION['user_username'])){
-    header('Location: http://localhost/Formation_cci/e_commerceV2/gentelella/administration/connexion.php');
+    header('Location:connexion.php');
 }else{
 $user_username = $_SESSION['user_username'];
 $user_id = $_SESSION['user_id'];
@@ -119,15 +119,15 @@ $user_role = $_SESSION['user_role'];
                                 <ul class="nav child_menu">
                                     <li><a href="index.php?page=6">Produit</a></li>
                                     <li><a href="index.php?page=7">Ajout Produit</a></li>
-                                    <li><a href="typography.html">Modification produit</a></li>
-                                    <li><a href="icons.html">Supprimer produit</a></li>
+                                    <li><a href="">Modification produit</a></li>
+                                    <li><a href="">Supprimer produit</a></li>
                                 </ul>
                             </li>
                             <li><a href="index.php?page=9"><i class="fa fa-table"></i> Clients</a>
                             </li>
                             <li><a href="index.php?page=10"><i class="fa fa-bar-chart-o"></i> Commandes </a>
                             </li>
-                            <li><a href="../../index.php?"><i class="fa fa-clone"></i>Retour au site</a>
+                            <li><a href="../../"><i class="fa fa-clone"></i>Retour au site</a>
                             </li>
                         </ul>
                     </div>

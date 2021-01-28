@@ -1,5 +1,3 @@
-
-
 <div id="barreMenu">
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -17,7 +15,7 @@
 
                 while ($donnesNomCat= $reqCat->fetch()){
                     $reqCatProd=$bd->prepare('SELECT cat_personne_id, id_cat_produit ,nom_cat_produit FROM categorie_produit WHERE cat_personne_id = :cat_personne_id ');
-                    $reqCatProd->bindValue(':cat_personne_id', $donnesNomCat['cat_personne_id'], PDO::PARAM_STR);
+                    $reqCatProd->bindValue(':cat_personne_id', $donnesNomCat['id_cat_personne'], PDO::PARAM_INT);
                     $reqCatProd->execute();
                     $donnesNomProd= $reqCatProd->fetch();
 
