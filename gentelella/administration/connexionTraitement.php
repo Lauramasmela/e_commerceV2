@@ -8,9 +8,12 @@ if (isset($_POST['validationSubmit'])) {
         $email = $_POST['email'];
         $mdp = $_POST['motdepasse'];
 
-        $reqUser = $bd->prepare('SELECT * FROM admin WHERE email = :email');
-        $reqUser->bindValue(':email', $email, PDO::PARAM_STR);
-        $reqUser->execute();
+        if (isset($bd)) {
+            $reqUser = $bd->prepare('SELECT * FROM admin WHERE email = :email');
+            $reqUser->bindValue(':email', $email, PDO::PARAM_STR);
+            $reqUser->execute();
+        }
+
 
         $donneesUserAdmin = $reqUser->fetch();
 
@@ -33,7 +36,7 @@ if (isset($_POST['validationSubmit'])) {
                 $_SESSION['user_role']= $user_role;
 
 //                header('Location: http://localhost/Formation_cci/e_commerceV2/gentelella/administration/index.php');
-                header('Location: index.php');
+                header('Location: index.php?');
 
             } else {
                 $msgErrDonnees = '<div class="alert alert-danger" role="alert">
@@ -41,7 +44,7 @@ if (isset($_POST['validationSubmit'])) {
                  </div>';
                 $_SESSION['msgErrDonnees'] = $msgErrDonnees;
 //                header('Location: http://localhost/Formation_cci/e_commerceV2/gentelella/administration/index.php');
-                header('Location: index.php');
+                header('Location: index.php?');
 
             }
         } else {
@@ -50,7 +53,7 @@ if (isset($_POST['validationSubmit'])) {
                  </div>';
             $_SESSION['msgErrDonnees'] = $msgErrDonnees;
 //            header('Location: http://localhost/Formation_cci/e_commerceV2/gentelella/administration/index.php');
-            header('Location: index.php');
+            header('Location: index.php?');
 
         }
     } else {
