@@ -57,61 +57,68 @@ if (isset($_GET['mod']) && isset($_GET['cat'])) {
                         echo $dBlock;
                     } ?>">Modification de Catégorie</h2>
                     <div class="clearfix"></div>
-                    <div class="x_content">
-                        <br>
-                        <form class="form-horizontal form-label-left" method="post">
-
-                            <div class="form-group row ">
-                                <div class="col-md-9 col-sm-9 ">
-                                    <input type="hidden" name="idCat" id="idCat" class="form-control">
-                                </div>
-                            </div>
-                            <div class="form-group row ">
-                                <label class="control-label col-md-3 col-sm-3 ">Nom de catégorie</label>
-                                <div class="col-md-9 col-sm-9 ">
-                                    <input type="text" name="nomCat" id="nomCat" class="form-control"
-                                           value="<?php if (isset($mod)) {
-                                               echo $nom_cat;
-                                           } ?>">
-                                </div>
-                            </div>
-
-                            <div class="form-group row">
-                                <label class="col-md-3 col-sm-3  control-label">En ligne
-                                </label>
-                                <div class="col-md-9 col-sm-9 ">
-                                    <div class="radio">
-                                        <label>
-                                            <input type="radio" value="1" id="optionsRadios1"
-                                                   name="enLigneCat"> Oui
-                                        </label>
-                                    </div>
-                                    <div class="radio">
-                                        <label>
-                                            <input type="radio" value="0" id="optionsRadios2" name="enLigneCat"> Non
-                                        </label>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="ln_solid"></div>
-                            <div class="form-group">
-                                <div class="col-md-9 col-sm-9  offset-md-3">
-                                    <button type="button" onclick="updateCat('ajouter', '<?php if (isset($cat)) {
-                                        echo $cat;
-                                    } ?>');" name="submit"
-                                            id="submit" class="btn btn-success <?php if (isset($mod)) {echo $dnone;} ?>">Ajouter
-                                    </button>
-
-                                    <button type="button" onclick="updateCat('modifier','<?php if (isset($cat)){echo $cat;}  ?>');"
-                                            name="modifierCat"
-                                            class="btn btn-success d-none <?php if (isset($mod)) {echo $dBlock;} ?>">Modifier
-                                    </button>
-                                </div>
-                            </div>
-                        </form>
-                        <div id="test" style="display: none"></div>
-                    </div>
                 </div>
+                <div class="x_content">
+                    <br>
+                    <form class="form-horizontal form-label-left" method="post">
+
+                        <div class="form-group row ">
+                            <div class="col-md-9 col-sm-9 ">
+                                <input type="hidden" name="idCat" id="idCat" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group row ">
+                            <label class="control-label col-md-3 col-sm-3 ">Nom de catégorie</label>
+                            <div class="col-md-9 col-sm-9 ">
+                                <input type="text" name="nomCat" id="nomCat" class="form-control"
+                                       value="<?php if (isset($mod)) {
+                                           echo $nom_cat;
+                                       } ?>">
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label class="col-md-3 col-sm-3  control-label">En ligne
+                            </label>
+                            <div class="col-md-9 col-sm-9 ">
+                                <div class="radio">
+                                    <label>
+                                        <input type="radio" value="1" id="optionsRadios1"
+                                               name="enLigneCat"> Oui
+                                    </label>
+                                </div>
+                                <div class="radio">
+                                    <label>
+                                        <input type="radio" value="0" id="optionsRadios2" name="enLigneCat"> Non
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ln_solid"></div>
+                        <div class="form-group">
+                            <div class="col-md-9 col-sm-9  offset-md-3">
+                                <button type="button" onclick="updateCat('ajouter', '<?php if (isset($cat)) {
+                                    echo $cat;
+                                } ?>');" name="submit"
+                                        id="submit" class="btn btn-success <?php if (isset($mod)) {
+                                    echo $dnone;
+                                } ?>">Ajouter
+                                </button>
+
+                                <button type="button" onclick="updateCat('modifier','<?php if (isset($cat)) {
+                                    echo $cat;
+                                } ?>');"
+                                        name="modifierCat"
+                                        class="btn btn-success d-none <?php if (isset($mod)) {
+                                            echo $dBlock;
+                                        } ?>">Modifier
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="test" style="display: none"></div>
+                </div>
+
             </div>
         </div>
 
